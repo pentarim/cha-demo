@@ -34,14 +34,7 @@ class UserController extends BaseController
         $validationErrors = $this->validateAttributes($input);
 
         if (!empty($validationErrors)) {
-            $response = $this->response
-                ->withStatus(400)
-                ->withHeader('Content-Type', 'text/plain')
-            ;
-            $response->getBody()
-                ->write(\implode("\n", $validationErrors));
-
-            return $response;
+            return $this->getResponse(400, \implode("\n", $validationErrors));
         }
 
         $attributes = [
