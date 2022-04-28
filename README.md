@@ -38,12 +38,20 @@ vi .env
 php -S localhost:8080 -t public/
 ```
 
-## Test
+### Test
 
 Run phpunit tests with
 
 ```
 composer test
+```
+
+Test with curl
+
+```
+curl -v -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "name=JohnDoe&yearOfBirth=1946" "http://localhost:8080/user"
+curl -v -X GET http://localhost:8080/user/5
+curl -v -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "name=JohnDoe&yearOfBirth=1984" "http://localhost:8080/user/5"
 ```
 
 ## TODO
